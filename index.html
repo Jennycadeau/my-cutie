@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification</title>
+    <style>
+        body{
+        background-image:url('magnify1.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        }
+
+        .robot{
+            background-color: whitesmoke;
+            width: 250px;
+            height: 60px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #999999;
+            border-radius: 5px;
+        }
+
+        button{
+            width: 200px;
+            height: 50px;
+            border-radius: 15px;
+            border-style: solid;
+            border-color: black;
+            border-width: 2px;
+
+        }
+    </style>
+</head>
+<body>
+    <h1> HELLO USER!</h1>
+    <p> To verify you are the intended user AKA My cutie, Please answer these two questions; </p><br>
+    <form id="quizForm" onsubmit="checkAnswer(event)">
+    <label for="q1" style="font-weight: bold; font-size: 20px;"> What music type do you hate the most? </label><br>
+    <input type="radio" name="music" value="rock"><label> Rock & blues </label><br>
+    <input type="radio" name="music" value="rap"><label> Rap & Hip-hop </label><br>
+    <input type="radio" name="music" value="reg"><label> Reggae & RnB </label><br>
+    <input type="radio" name="music" value="pop"><label> Pop & EDM </label><br><br>
+
+    <label for="q2" style="font-weight: bold; font-size: 20px;"> When did you admit your love for me for the first time? </label><br>
+    <input type="radio" name="date" value="d1"><label> 29th January 2019 </label><br>
+    <input type="radio" name="date" value="d2"><label> 17th February 2021 </label><br>
+    <input type="radio" name="date" value="d3"><label> 29th April 2020</label><br>
+    <input type="radio" name="date" value="d4"><label> 5th May 2022 </label>
+    <br><br><br>
+
+    <label for="q3" style="font-weight: bold; font-size: 20px;"> What was our first online game we played? </label><br>
+    <input type="radio" name="game" value="g1"><label> Gun to your head</label><br>
+    <input type="radio" name="game" value="g2"><label> Truth or dare </label><br>
+    <input type="radio" name="game" value="g3"><label> Hangman </label><br>
+    <input type="radio" name="game" value="g4"><label> 20 questions </label>
+    <br><br><br>
+
+    <label for="q4" style="font-weight: bold; font-size: 20px;"> Our first anniversary was marked after how much time of knowing each other? </label><br>
+    <input type="radio" name="time" value="t1"><label> 1 month </label><br>
+    <input type="radio" name="time" value="t2"><label> 2 months </label><br>
+    <input type="radio" name="time" value="t3"><label> 1 year </label><br>
+    <input type="radio" name="time" value="t4"><label> 3 months </label>
+    <br><br><br>
+
+    <div class="robot">
+        <table>
+        <tr>
+    <td><input type="checkbox" name="check" value="tick" required style="height: 30px; width: 20px; margin-top: 15px; margin-left: 15px; margin-bottom: 15px;"></td>
+    <td>&nbsp&nbsp<label for="check" style="height: 30px; margin-top: 15px;"> I'm not a robot </label></td>
+    <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="capcha.jpg" style="height: 50px; width: 50px;"></td>
+    </tr>
+        </table>
+    </div><br><br>
+
+    <center><a href="index.html"><button> Next </button></a></center>
+    </form>
+
+    <script>
+        function checkAnswer(event){
+            event.preventDefault(); //prevent the form from submitting
+
+            const answer1=document.querySelector('input[name="music"]:checked').value;
+            const answer2=document.querySelector('input[name="date"]:checked').value;
+            const answer3=document.querySelector('input[name="game"]:checked').value;
+            const answer4=document.querySelector('input[name="time"]:checked').value;
+            
+            if(answer1==='rap' && answer2==='d3' && answer3==='g2' && answer4==='t4'){
+                window.location.href='page1.html'; //redirect to the correct page
+            }
+            else{
+                window.location.href='who.html'; //go to the wrong page
+            }
+        }
+        
+    </script>
+
+
+</body>
+</html>
